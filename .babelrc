@@ -1,0 +1,18 @@
+{
+    "plugins": [
+      ["transform-class-properties", { "spec": true }],
+      "transform-function-bind"
+    ],
+    "presets":[
+        ["env", {
+          "debug" : true,
+          "spec" : true,
+          "useBuiltIns": true,
+          "loose" : true,
+          "targets": {
+            "browsers": ["last 2 versions", "ie >= 7"]
+          }
+        }],
+        "react"
+    ]
+}
