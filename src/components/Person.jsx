@@ -60,7 +60,6 @@ export default class Person extends React.Component {
         ) {
             const { value, name } = target;  
             const { persons } = this.props;
-            debugger;
             if ( name === 'login'
                 && typeof(persons) === 'object'
                 && persons !== null

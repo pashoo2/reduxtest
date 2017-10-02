@@ -26,8 +26,7 @@ export default class Orders extends React.Component {
             }
             )
             : null;
-            
-        debugger;
+        
         
         return  <Card.Group items={_orders} />;
             

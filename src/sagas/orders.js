@@ -2,10 +2,11 @@ import localforage from 'localforage';
 import { put, takeEvery, select } from 'redux-saga/effects'
    
 export function* pushOrders(action) {
-    let { orders } = yield select();
+    let { orders, order, person } = yield select();
+    order.buyer = person.login;
     let res = yield localforage.setItem(
         'redux.state.initState.orders',
-        orders.concat(action.payload)
+        orders.concat(order)
     ).catch( e => e );
     debugger;
     if ( res instanceof Error === true ) yield put({
@@ -14,7 +15,11 @@ export function* pushOrders(action) {
         })
     else yield put({
             type : 'PUSH_ORDER_SUCCESS',
-            payload : action.payload
+            payload : order
+        });
+        
+    yield put({
+            type : 'ORDER_STOP'
         });
 }   
     

@@ -6,22 +6,11 @@ import { Button }  from 'semantic-ui-react';
 
 import Person from 'components/Person.jsx';
 import Orders from 'components/Orders.jsx';
-import Order  from 'components/Order.jsx';
+import Order  from 'containers/Order.jsx';
 
 import actionsOrders from 'actions/orders.js';
 
-const propTypes = {
-    state_root : React.PropTypes.object.isRequired,
-    'state_root.cats' : React.PropTypes.object.isRequired,
-    'state_root.dishes' : React.PropTypes.object.isRequired,
-    'state_root.addit' : React.PropTypes.object.isRequired,
-    'state_root.persons' : React.PropTypes.object.isRequired,
-    'state_root.orders' : React.PropTypes.object.isRequired
-};
-
 class App extends React.Component {
-    
-    static propTypes = propTypes;
     
     constructor(props, state) {
         super(props, state);  
@@ -74,8 +63,9 @@ class App extends React.Component {
     
     render() {
         
-        const { new_order, edit } = this.state;
-        const { person, persons, orders, cats, dishes, addit } = this.props.state_root;
+        var { new_order, edit } = this.state;
+        const { person, persons, orders, cats, dishes, addit, order } = this.props.state_root;
+        new_order = new_order === true || order.step !== -1; 
         const menu = { cats, dishes, addit, person, address : Object.assign({}, person.address) };
         debugger;            
         return edit === true

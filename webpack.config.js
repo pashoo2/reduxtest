@@ -5,6 +5,7 @@ module.exports = {
     devtool: 'eval-source-map',
     resolve : {
         alias : {
+            "containers"  : path.resolve(__dirname, "./src/containers"), 
             "components"  : path.resolve(__dirname, "./src/components"),
             "actions"     : path.resolve(__dirname, "./src/actions"),
             "sagas"       : path.resolve(__dirname, "./src/sagas"),

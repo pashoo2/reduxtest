@@ -6,6 +6,7 @@ import addit from './addit.js';
 import persons from './persons.js';
 import orders from './orders.js';
 import person from './person.js';
+import order from './order.js';
 
 /*
  root state:
@@ -34,6 +35,24 @@ import person from './person.js';
                 addr : ''
             } 
         }
+    },
+    order:{
+        buyer : idx, //index in persons
+        delivery : {
+            state : '',
+            province : '',
+            city : '',
+            street : '',
+            addr : ''
+        },
+        ,
+        dishes : [ 
+            { 
+                dish : '', 
+                dish_type: '',
+                addit : ''
+            }
+        ]
     },
     orders : [{
         buyer : idx, //index in persons
@@ -76,6 +95,7 @@ export default combineReducers(
         addit,
         persons,
         orders,
+        order,
         person
     }    
 );
